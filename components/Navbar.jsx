@@ -16,24 +16,30 @@ export default function Home() {
           </span>
         </Link>
         <div className="flex md:order-2">
+        <Link href="/login">
           <button
             type="button"
             className="text-black bg-transparent-700 hover:bg-transparent-800 focus:ring-0 focus:outline-none focus:ring-transparent-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-transparent-600 dark:hover:bg-transparent-700 dark:focus:ring-transparent-800"
           >
-            <Link href="/login">Login</Link>
+            Login
           </button>
+            </Link>
+          <Link href="/sign-up">
           <button
             type="button"
             className="text-white bg-green-700 hover:bg-green-800 focus:ring-0 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ml-3"
           >
-            <Link href="/sign-up">Signup</Link>
+            Signup
           </button>
+            </Link>
+          <Link href="/all-works">
           <button
             type="button"
             className="text-white bg-green-700 hover:bg-green-800 focus:ring-0 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ml-3"
           >
-            <Link href="/all-works">All Works</Link>
+            All Works
           </button>
+            </Link>
         </div>
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
