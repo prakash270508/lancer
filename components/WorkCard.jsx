@@ -8,7 +8,7 @@ export default function WorkCard() {
         <h1 className="text-xl font-bold text-green-700 mx-8 hover:underline">
           Build a Project Management Website using Laravel
         </h1>
-        <p className="mx-8 my-5">
+        <p className="mx-8 my-5 sm:my-3">
           This project involves developing a Laravel website with project
           management and other features. The website aims to be a free
           non-profit platform allowing people to solve problems in society by
