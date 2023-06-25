@@ -2,7 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 
+.inputTypeDiv {
+  border: 1px solid black;
+  border-radius: 7px;
+  height: fit-content;
+  padding: 2px 10px;
+}
+
+.buttons {
+  transform: translate(376%, -102%);
+  position: absolute;
+}
+
+.cross {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.cross:before,
+.cross:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: black;
+}
+
+.cross:before {
+  transform: rotate(45deg);
+}
+
+.cross:after {
+  transform: rotate(-45deg);
+}

@@ -35,11 +35,9 @@ export default function Page() {
         form
       );
 
-      console.log(response.data);
-
       toast.success(response.data.message);
 
-      router.push("/");
+      router.push("/login");
 
       setForm({
         name: "",

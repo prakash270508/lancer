@@ -1,17 +1,58 @@
+"use client"
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import {toast} from 'react-toastify'
+import { useRouter } from "next/navigation";
 
 export default function page() {
+  
+  const [form , setForm] = useState({})
+  const router = useRouter();
+
+  const handleChange = (e)=>{
+    setForm((prevalue)=> ({
+      ...prevalue, 
+      [e.target.name] : e.target.value
+    }))
+  }
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    console.log(form)
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/login",
+        form
+      );
+
+      toast.success(response.data.message);
+
+      localStorage.setItem("token" , response.data.token)
+
+      router.push("/all-works");
+      // window.location.href = "/all-works";
+
+      setForm({});
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+    }
+
+  }
+
   return (
     <div className="flex items-center justify-center">
       <div className="w-full max-w-sm mt-16  p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-6" action="#">
+        <form onSubmit={handleSubmit} className="space-y-6" action="#">
           <h5 className="text-2xl text-center font-bold text-gray-900 dark:text-white">
             Login to Lancer
           </h5>
           <div>
             <label
-              for="email"
+              htmlFor="email"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Your email
@@ -20,6 +61,7 @@ export default function page() {
               type="email"
               name="email"
               id="email"
+              onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
               required
@@ -27,7 +69,7 @@ export default function page() {
           </div>
           <div>
             <label
-              for="password"
+              htmlFor="password"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Your password
@@ -37,6 +79,7 @@ export default function page() {
               name="password"
               id="password"
               placeholder="••••••••"
+              onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required
             />
