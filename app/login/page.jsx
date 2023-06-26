@@ -5,11 +5,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import {toast} from 'react-toastify'
 import { useRouter } from "next/navigation";
+import { useDispatch} from "react-redux";
+import { login } from "@/redux/slice/user/userSlice";
 
 export default function page() {
   
   const [form , setForm] = useState({})
   const router = useRouter();
+  const dispatch = useDispatch()
 
   const handleChange = (e)=>{
     setForm((prevalue)=> ({
@@ -20,7 +23,6 @@ export default function page() {
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
-    console.log(form)
 
     try {
       const response = await axios.post(
@@ -31,6 +33,19 @@ export default function page() {
       toast.success(response.data.message);
 
       localStorage.setItem("token" , response.data.token)
+      localStorage.setItem('user', response.data.user)
+
+      const user = response.data.user;
+
+      const userData = {
+        _id: user._id,
+        email: user.email,
+        username: user.username,
+        role: user.role,
+        isAdmin: user.isAdmin,
+      };
+
+      dispatch(login(userData));
 
       router.push("/all-works");
       // window.location.href = "/all-works";
