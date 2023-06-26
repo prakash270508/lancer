@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      {/* Banner */}
+      <title>Lancer</title>
       <div className="flex mx-20">
         <div className="w-50 mx-20 mt-20">
           <h1 className="text-7xl text-green-600 font-extrabold font-serif">

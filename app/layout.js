@@ -11,11 +11,6 @@ import { store } from "../redux/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Freelancer",
-  description: "First App by me",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

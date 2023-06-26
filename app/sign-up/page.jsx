@@ -53,6 +53,7 @@ export default function Page() {
 
   return (
     <>
+    <title>Lancer | sign-up</title>
       <div className="flex items-center justify-center">
         <div className="w-max max-w-sm mt-6  p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
           {!clicked ? (

@@ -60,6 +60,7 @@ export default function page() {
 
   return (
     <div className="flex items-center justify-center">
+      <title>Lancer | Login</title>
       <div className="w-full max-w-sm mt-16  p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form onSubmit={handleSubmit} className="space-y-6" action="#">
           <h5 className="text-2xl text-center font-bold text-gray-900 dark:text-white">

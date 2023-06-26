@@ -15,8 +15,6 @@ export default function Home() {
 
   const { user, isLoggedin } = useSelector((state) => state.user);
 
-  console.log("From navbar"  ,isLoggedin)
-
   const fetchMe = async () => {
     try {
       const response = await axios.get("http://localhost:4000/api/me", {
